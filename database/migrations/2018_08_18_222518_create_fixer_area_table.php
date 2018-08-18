@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFixersTable extends Migration
+class CreateFixerAreaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateFixersTable extends Migration
      */
     public function up()
     {
-        Schema::create('fixers', function (Blueprint $table) {
+        Schema::create('fixer_area', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('image_bath');
-            $table->date('birth_date');
-            $table->integer('city_id')->unsigned();
-            $table->integer('category_id')->unsigned();
+            $table->integer('fixer_id')->unsigned();
+            $table->integer('area_id')->unsigned();
         });
     }
 
@@ -30,6 +27,6 @@ class CreateFixersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fixers');
+        Schema::dropIfExists('fixer_area');
     }
 }
