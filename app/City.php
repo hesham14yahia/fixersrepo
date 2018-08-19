@@ -10,5 +10,8 @@ class City extends Model
 
     public function fixers(){
         return $this->hasMany('App\Fixer');
-    } 
+    }
+    public function areas(){
+        return $this->hasMany('App\Area');
+    }
 }

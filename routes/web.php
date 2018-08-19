@@ -44,9 +44,21 @@ Route::get('/insert', function(){
 //     }
 // });
 
+// Route::get('/read', function(){
+//     $city = City::find(1);    
+//     foreach($city->fixers as $fixer){
+//         return $fixer->name;
+//     }
+// });
+
+// Route::get('/read', function(){
+//     $city = City::find(2);
+//     foreach($city->areas as $area){
+//         echo $area->name.'<br>';
+//     }
+// });
+
 Route::get('/read', function(){
-    $city = City::find(1);    
-    foreach($city->fixers as $fixer){
-        return $fixer->name;
-    }
+    $area = Area::find(4);
+        return $area->city->name;
 });

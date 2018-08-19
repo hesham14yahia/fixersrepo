@@ -11,4 +11,7 @@ class Area extends Model
     public function fixers(){
         return $this->belongsToMany('App\Fixer',  'fixer_area');
     }
+    public function city(){
+        return $this->belongsTo('App\City');
+    }
 }
