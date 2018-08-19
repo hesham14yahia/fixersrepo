@@ -13,6 +13,7 @@
 
 use App\Fixer;
 use App\Category;
+use App\City;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,6 @@ Route::get('/insert', function(){
 
 Route::get('/read', function(){
     $fixer = Fixer::find(1);
-    $cat = Category::find($fixer->category_id);
+    $cat = City::find($fixer->city_id);
     echo $cat->name;
 });
