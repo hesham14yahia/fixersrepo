@@ -30,9 +30,23 @@ Route::get('/insert', function(){
 //     echo $cat->name;
 // });
 
+// Route::get('/read', function(){
+//     $fixer = Fixer::find('1');
+//     foreach($fixer->areas as $area){
+//         echo $area->name.'<br>';
+//     }
+// });
+
+// Route::get('/read', function(){
+//     $area = Area::find(1);
+//     foreach($area->fixers as $fixer){
+//         return $fixer->name;
+//     }
+// });
+
 Route::get('/read', function(){
-    $fixer = Fixer::find('1');
-    foreach($fixer->areas as $area){
-        echo $area->name.'<br>';
+    $city = City::find(1);    
+    foreach($city->fixers as $fixer){
+        return $fixer->name;
     }
 });
