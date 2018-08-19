@@ -17,6 +17,7 @@ class CreateFixerAreaTable extends Migration
             $table->increments('id');
             $table->integer('fixer_id')->unsigned();
             $table->integer('area_id')->unsigned();
+            $table->timestamps();
         });
     }
 

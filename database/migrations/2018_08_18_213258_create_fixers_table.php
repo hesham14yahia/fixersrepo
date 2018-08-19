@@ -20,6 +20,7 @@ class CreateFixersTable extends Migration
             $table->date('birth_date');
             $table->integer('city_id')->unsigned();
             $table->integer('category_id')->unsigned();
+            $table->timestamps();
         });
     }
 
