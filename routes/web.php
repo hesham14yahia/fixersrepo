@@ -13,6 +13,7 @@
 
 use App\Fixer;
 use App\Category;
+use App\Country;
 use App\City;
 use App\Area;
 
@@ -58,7 +59,19 @@ Route::get('/insert', function(){
 //     }
 // });
 
-Route::get('/read', function(){
-    $area = Area::find(4);
-        return $area->city->name;
-});
+// Route::get('/read', function(){
+//     $area = Area::find(4);
+//         return $area->city->name;
+// });
+
+// Route::get('/read', function(){
+//     $country = Country::find(2);
+//     foreach($country->cities as $city){
+//         echo $city->name.'<br>';
+//     }
+// });
+
+// Route::get('/read', function(){
+//     $city = City::find(4);
+//         return $city->country->name;
+// });
