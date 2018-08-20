@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Fixer;
+use App\Area;
+use App\City;
+use App\Category;
+use App\Country;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +18,17 @@ class FixerController extends Controller
      */
     public function index()
     {
-        return view('pages.index');
+        $categories = Category::all();
+        $areas = Area::all();
+        $cities = City::all();
+        $fixers = Fixer::orderBy('id', 'asc')->paginate(10);
+        $fixerData = [
+            'fixers' => $fixers,
+            'cities' => $cities,
+            'areas' => $areas,
+            'categories' => $categories
+        ];
+        return view('pages.index')->with($fixerData);
     }
 
     /**
@@ -23,7 +38,7 @@ class FixerController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.create');
     }
 
     /**

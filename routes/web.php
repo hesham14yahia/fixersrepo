@@ -19,6 +19,8 @@ use App\Area;
 
 Route::get('/', 'FixerController@index');
 
+Route::resource('fixers', 'FixerController');
+
 // Route::get('/insert', function(){
 //     $fixer = Fixer::create(['name'=>'Fatama', 'image_bath'=> 'fatama.png', 'birth_date'=> '2010-10-5', 'city_id'=> '1', 'category_id' => '2']);
 // });

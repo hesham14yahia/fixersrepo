@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>{{config('app.name')}}</title>
+    <title>{{config('app.name', 'Fixers Repo')}}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
     <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
+    <!-- My Custom css -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
