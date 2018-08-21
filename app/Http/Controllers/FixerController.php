@@ -47,7 +47,14 @@ class FixerController extends Controller
      */
     public function create()
     {
-        return view('fixers.create');
+        $categories = Category::pluck('name', 'id');
+        $cities = City::pluck('name', 'id');
+
+        $fixerData = [
+            'cities' => $cities,
+            'categories' => $categories
+        ];
+        return view('fixers.create')->with($fixerData);
     }
 
     /**
@@ -58,7 +65,40 @@ class FixerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'birth_date' => 'required',
+            'city_id' => 'required',
+            'category_id' => 'required',
+            'image_bath' => 'image|nullable|max:1999'
+        ]);
+
+        // Handle File Upload
+        if($request->hasFile('image_bath')){
+            // Get file name with extension
+            $filenameWithExt = $request->file('image_bath')->getClientOriginalName();
+            // Get Just file name
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get Just file Extension
+            $extension = $request->file('image_bath')->getClientOriginalExtension();
+            // Filename for store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('image_bath')->storeAs('public/image_bath', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+        // Create Post
+        $post = new Fixer;
+        $post->name = $request->input('name');
+        $post->birth_date = $request->input('birth_date');
+        $post->city_id = $request->input('city_id');
+        $post->category_id = $request->input('category_id');
+        $post->image_bath = $fileNameToStore;
+        $post->save();
+
+        return redirect('/');
     }
 
     /**

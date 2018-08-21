@@ -28,3 +28,6 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>
+
+<!-- My Custom Js -->
+<script src="js/custom.js" type="text/javascript"></script>

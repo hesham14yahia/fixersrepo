@@ -57,11 +57,14 @@
                 <!-- /.sidebar -->
             </aside>
             <aside class="right-side">
+                <h1 class="content-header page-header">
+                    @yield('page_header')
+                </h1>
                 <div class="row">
                     @yield('filters')
                 </div>
                 <div class="row">
-                    @yield('table')
+                    @yield('content')
                 </div>
             </aside>
         </div><!-- ./wrapper -->
