@@ -11,17 +11,15 @@
 |
 */
 
-use App\Fixer;
-use App\Category;
-use App\Country;
-use App\City;
-use App\Area;
-
-Route::get('/', 'FixerController@index');
-Route::get('/location', 'LocationController@index');
-Route::get('/location/create', 'LocationController@create');
+// use App\Fixer;
+// use App\Category;
+// use App\Country;
+// use App\City;
+// use App\Area;
 
 Route::resource('/', 'FixerController');
+Route::resource('location', 'LocationController');
+Route::resource('category', 'CategoryController');
 
 // Route::get('/insert', function(){
 //     $fixer = Fixer::create(['name'=>'Fatama', 'image_bath'=> 'fatama.png', 'birth_date'=> '2010-10-5', 'city_id'=> '1', 'category_id' => '2']);

@@ -12,7 +12,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="{{url('/img/avatar3.png')}}" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>Jane Doe</p>
@@ -28,8 +28,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/"><i class="fa fa-angle-double-right"></i> Fixer List</a></li>
-                                <li><a href="/create"><i class="fa fa-angle-double-right"></i> Add Fixer</a></li>
+                                <li><a href="{{url('/')}}"><i class="fa fa-angle-double-right"></i> Fixer List</a></li>
+                                <li><a href="{{url('/create')}}"><i class="fa fa-angle-double-right"></i> Add Fixer</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -38,8 +38,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/location/"><i class="fa fa-angle-double-right"></i> Locations List</a></li>
-                                <li><a href="/location/create"><i class="fa fa-angle-double-right"></i> Add Locations</a></li>
+                                <li><a href="{{url('/location/')}}"><i class="fa fa-angle-double-right"></i> Locations List</a></li>
+                                <li><a href="{{url('/location/create')}}"><i class="fa fa-angle-double-right"></i> Add Locations</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -48,8 +48,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/categiry/"><i class="fa fa-angle-double-right"></i> Category List</a></li>
-                                <li><a href="/categiry/create"><i class="fa fa-angle-double-right"></i> Add Category</a></li>
+                                <li><a href="{{url('/categiry/')}}"><i class="fa fa-angle-double-right"></i> Category List</a></li>
+                                <li><a href="{{url('/categiry/create')}}"><i class="fa fa-angle-double-right"></i> Add Category</a></li>
                             </ul>
                         </li>
                     </ul>

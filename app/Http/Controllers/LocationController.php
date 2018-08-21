@@ -36,7 +36,7 @@ class LocationController extends Controller
             'countries' => $countries,
             'areas'=> $areas
         ];
-        return view('fixers.location.index')->with($locdata);
+        return view('location.index')->with($locdata);
     }
 
     /**
@@ -46,7 +46,14 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        $countries = Country::pluck('name', 'id');
+        $cities = City::pluck('name', 'id');
+
+        $relationData = [
+            'cities' => $cities,
+            'countries' => $countries
+        ];
+        return view('location.create')->with($relationData);
     }
 
     /**
@@ -56,8 +63,39 @@ class LocationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        if($request->input('country') !== null) {
+            $this->validate($request, [
+                'country' => 'required'
+            ]);
+            $country = new Country;
+            $country->name = $request->input('country');
+            $country->save();
+        }
+
+        if($request->input('city') !== null) {
+            $this->validate($request, [
+                'city' => 'required',
+                'country_id' => 'required'
+            ]);
+            $city = new City;
+            $city->name = $request->input('city'); 
+            $city->country_id = $request->input('country_id');
+            $city->save();
+        }
+
+        if($request->input('area') !== null) {
+            $this->validate($request, [
+                'area' => 'required',
+                'city_id' => 'required'
+            ]);
+            $area = new Area;
+            $area->name = $request->input('area'); 
+            $area->city_id = $request->input('city_id');
+            $area->save();
+        }
+
+        return redirect('/location');
     }
 
     /**

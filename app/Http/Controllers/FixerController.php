@@ -89,7 +89,7 @@ class FixerController extends Controller
             $fileNameToStore = 'noimage.jpg';
         }
 
-        // Create Post
+        // Create Fixer
         $post = new Fixer;
         $post->name = $request->input('name');
         $post->birth_date = $request->input('birth_date');

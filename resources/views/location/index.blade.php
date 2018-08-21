@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('page_header')
-    Create Locations
+    /Locations
 @endsection
 
 @section('content')
