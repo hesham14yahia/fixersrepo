@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\City;
+use App\Country;
+use App\Area;
+use App\Fixer;
 
-class LocationsController extends Controller
+class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +17,26 @@ class LocationsController extends Controller
      */
     public function index()
     {
-        //
+        $cities = City::orderBy('id', 'asc')->paginate(10);
+        $countries = Country::orderBy('id', 'asc')->paginate(10);
+        $areas = Area::orderBy('id', 'asc')->paginate(10);
+        // $x = count($cities);
+        // $y = count($countries);
+        // $z = count($areas);
+        // if($x > $y && $x > $z) {
+        //     $i = $x;
+        // } else if($y > $x && $y > $z) {
+        //     $i = $y;
+        // } else {
+        //     $i = $z;
+        // }
+        
+        $locdata = [
+            'cities' => $cities,
+            'countries' => $countries,
+            'areas'=> $areas
+        ];
+        return view('fixers.location.index')->with($locdata);
     }
 
     /**

@@ -18,6 +18,8 @@ use App\City;
 use App\Area;
 
 Route::get('/', 'FixerController@index');
+Route::get('/location', 'LocationController@index');
+Route::get('/location/create', 'LocationController@create');
 
 Route::resource('/', 'FixerController');
 

@@ -49,6 +49,7 @@
                                     </td>
                                     <td>{{$fixer->category->name}}</td>
                                 </tr>
+                                {{--<!-- Start POPUP -->
                                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -74,7 +75,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End POPUP -->
+                                <!-- End POPUP --> --}}
                             @endforeach
                         @endif
                      </tbody>
