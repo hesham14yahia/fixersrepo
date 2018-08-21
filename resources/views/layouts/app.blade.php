@@ -48,8 +48,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="{{url('/categiry/')}}"><i class="fa fa-angle-double-right"></i> Category List</a></li>
-                                <li><a href="{{url('/categiry/create')}}"><i class="fa fa-angle-double-right"></i> Add Category</a></li>
+                                <li><a href="{{url('/category/')}}"><i class="fa fa-angle-double-right"></i> Category List</a></li>
+                                <li><a href="{{url('/category/create')}}"><i class="fa fa-angle-double-right"></i> Add Category</a></li>
                             </ul>
                         </li>
                     </ul>
