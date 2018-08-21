@@ -18,18 +18,27 @@ class FixerController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        $areas = Area::all();
-        $cities = City::all();
-        $fixers = Fixer::orderBy('id', 'asc')->paginate(10);
+        $categories = Category::pluck('name', 'id');
+        $areas = Area::pluck('name', 'id');
+        $cities = City::pluck('name', 'id');
+        
+        if(isset($_GET['city_id'])){
+            $fixers = Fixer::where('city_id', $_GET['city_id'])->orderBy('id', 'asc')->paginate(10);
+        } else if(isset($_GET['category_id'])) {
+            $fixers = Fixer::where('category_id', $_GET['category_id'])->orderBy('id', 'asc')->paginate(10);
+        } else {
+            $fixers = Fixer::orderBy('id', 'asc')->paginate(10);
+        }
+
         $fixerData = [
             'fixers' => $fixers,
             'cities' => $cities,
             'areas' => $areas,
             'categories' => $categories
         ];
-        return view('pages.index')->with($fixerData);
+        return view('fixers.index')->with($fixerData);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +47,7 @@ class FixerController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        return view('fixers.create');
     }
 
     /**

@@ -29,7 +29,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="/"><i class="fa fa-angle-double-right"></i> Fixer List</a></li>
-                                <li><a href="/fixers/create"><i class="fa fa-angle-double-right"></i> Add Fixer</a></li>
+                                <li><a href="/create"><i class="fa fa-angle-double-right"></i> Add Fixer</a></li>
                             </ul>
                         </li>
                         <li class="treeview">

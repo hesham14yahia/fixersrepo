@@ -1,38 +1,19 @@
 @extends('layouts.app')
 
 @section('filters')
-    <div class="col-xs-4">
-        {!! Form::open(['url' => 'foo/bar']) !!}
-            <select class="form-control">
-                <option value selected disabled>Filter By City</option>
-                @foreach($cities as $city)
-                    <option>
-                        {{$city->name}}
-                    </option>
-                @endforeach
-            </select>
-        {!! Form::close() !!}
-    </div>
-    <div class="col-xs-4">
-        <select class="form-control">
-            <option value selected disabled>Filter By Area</option>
-            @foreach($areas as $area)
-                <option>
-                    {{$area->name}}
-                </option>
-            @endforeach
-        </select>
-    </div>
-    <div class="col-xs-4">
-        <select class="form-control">
-            <option value selected disabled>Filter By Category</option>
-            @foreach($categories as $category)
-                <option>
-                    {{$category->name}}
-                </option>
-            @endforeach
-        </select>
-    </div>
+        <div class="col-xs-3">
+            {!! Form::open(['action' => 'FixerController@index', 'method' => 'Get']) !!}
+                {{Form::select('city_id', $cities, null, ['class' => 'form-control', 'placeholder' => 'Filter By City'])}}
+                {{Form::submit('Filter', ['class' => 'btn btn-info col-xs-12 btn-filter'])}}
+            {!! Form::close() !!}
+            {{-- {{Form::hidden('_method', 'PUT')}} --}}
+        </div>
+        <div class="col-xs-3">
+            {!! Form::open(['action' => 'FixerController@index', 'method' => 'GET']) !!}
+                {{Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Filter By Category'])}}
+                {{Form::submit('Filter', ['class' => 'btn btn-info col-xs-12 btn-filter'])}}
+            {!! Form::close() !!}
+        </div>
 @endsection
 
 @section('table')
