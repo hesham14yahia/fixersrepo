@@ -45,4 +45,18 @@
         </div>
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+
+    <br><br><br>
+    {{-- Area Form --}}
+    {!! Form::open(['action' => 'LocationController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        <div class="form-group">
+            {{Form::label('fixer_id', 'Fixer Name')}}
+            {{Form::select('fixer_id', $fixers, null, ['class' => 'form-control', 'placeholder' => 'Filter By City'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('area_id', 'Area Name')}}
+            {{Form::select('area_id', $areas, null, ['class' => 'form-control', 'placeholder' => 'Filter By City'])}}
+        </div>
+        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+    {!! Form::close() !!}
 @endsection

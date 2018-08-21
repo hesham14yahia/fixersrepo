@@ -33,7 +33,7 @@
                             </tr>
                             @foreach($cities as $city)
                                 <tr>
-                                        <td>{{$city->name}}</td>
+                                    <td>{{$city->name}}</td>
                                 </tr>
                             @endforeach
                     </tbody>

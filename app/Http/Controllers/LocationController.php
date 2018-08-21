@@ -48,10 +48,14 @@ class LocationController extends Controller
     {
         $countries = Country::pluck('name', 'id');
         $cities = City::pluck('name', 'id');
+        $areas = Area::pluck('name', 'id');
+        $fixers = Fixer::pluck('name', 'id');
 
         $relationData = [
             'cities' => $cities,
-            'countries' => $countries
+            'countries' => $countries,
+            'areas' => $areas,
+            'fixers' => $fixers
         ];
         return view('location.create')->with($relationData);
     }
@@ -93,6 +97,16 @@ class LocationController extends Controller
             $area->name = $request->input('area'); 
             $area->city_id = $request->input('city_id');
             $area->save();
+        }
+
+        if($request->input('fixer_id') !== null || $request->input('area_id') !== null) {
+            $this->validate($request, [
+                'fixer_id' => 'required',
+                'area_id' => 'required'
+            ]);
+            $fixerid = $request->input('fixer_id');
+            $area = Area::findOrFail($request->input('area_id'));
+            $area->fixers()->attach($fixerid);
         }
 
         return redirect('/location');
