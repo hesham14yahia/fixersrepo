@@ -26,7 +26,14 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('name', 'id');
+        $fixers = Fixer::pluck('name', 'id');
+
+        $catData = [
+            'categories' => $categories,
+            'fixers' => $fixers
+        ];
+        return view('category.create')->with($catData);
     }
 
     /**
@@ -37,7 +44,27 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if($request->input('category') !== null) {
+            $this->validate($request, [
+                'category' => 'required'
+            ]);
+            $category = new Category;
+            $category->name = $request->input('category');
+            $category->save();
+        }
+
+        if($request->input('fixer_id') !== null || $request->input('cat_id') !== null) {
+            $this->validate($request, [
+                'fixer_id' => 'required',
+                'cat_id' => 'required'
+            ]);
+            $fixer = Fixer::findOrFail($request->input('fixer_id'));
+            $fixer->category_id = $request->input('cat_id');
+            $fixer->save();
+        }
+
+        return redirect('/category');
     }
 
     /**

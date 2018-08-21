@@ -47,7 +47,7 @@
     {!! Form::close() !!}
 
     <br><br><br>
-    {{-- Area Form --}}
+    {{-- Fixer Form --}}
     {!! Form::open(['action' => 'LocationController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
             {{Form::label('fixer_id', 'Fixer Name')}}
